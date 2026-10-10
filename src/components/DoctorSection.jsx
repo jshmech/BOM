@@ -79,11 +79,13 @@ export default function DoctorSection() {
                 {group.items.map((item, ii) => (
                   <p
                     key={ii}
+                    // 일반 이력은 병원소개·정신분석과 같은 글자 크기·색, 줄간격만 목록답게 조금 좁게
+                    className={group.highlight ? undefined : 'text-lg md:text-xl'}
                     style={{
                       fontWeight: group.highlight ? 700 : 400,
-                      fontSize: group.highlight ? '1.25rem' : '1.05rem',
-                      color: group.highlight ? '#ffffff' : 'rgba(255,255,255,0.92)',
-                      lineHeight: 1.75,
+                      ...(group.highlight ? { fontSize: '1.25rem' } : {}),
+                      color: '#ffffff',
+                      lineHeight: group.highlight ? 1.75 : 1.9,
                     }}
                   >
                     {item}

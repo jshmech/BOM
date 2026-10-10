@@ -1,7 +1,8 @@
+// full: 웹(한 줄), mobile: 모바일(정해 둔 줄바꿈)
 const LINES = [
-  '따뜻하게 맞이하고 위로와 격려를 드리겠습니다.',
-  '어두운 길을 함께 걷는 동반자가 되겠습니다.',
-  '전문적인 치료를 제공하겠습니다.',
+  { full: '따뜻하게 맞이하고 위로와 격려를 드리겠습니다.', mobile: ['따뜻하게 맞이하고', '위로와 격려를 드리겠습니다.'] },
+  { full: '어두운 길을 함께 걷는 동반자가 되겠습니다.', mobile: ['어두운 길을 함께 걷는', '동반자가 되겠습니다.'] },
+  { full: '전문적인 치료를 제공하겠습니다.', mobile: ['전문적인 치료를', '제공하겠습니다.'] },
 ]
 
 export default function Hero() {
@@ -28,7 +29,12 @@ export default function Hero() {
               textShadow: '0 1px 10px rgba(0,0,0,0.55)',
             }}
           >
-            {line}
+            <span className="hidden md:inline">{line.full}</span>
+            <span className="md:hidden">
+              {line.mobile[0]}
+              <br />
+              {line.mobile[1]}
+            </span>
           </p>
         ))}
       </div>
