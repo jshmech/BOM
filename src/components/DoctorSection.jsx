@@ -73,7 +73,7 @@ export default function DoctorSection() {
           </div>
 
           {/* 우측: 이력 */}
-          <div className="max-w-md font-sans text-on-photo">
+          <div className="max-w-md font-sans text-on-photo text-center md:text-left text-balance">
             {CAREER_GROUPS.map((group, gi) => (
               <div key={gi} style={{ marginBottom: gi < CAREER_GROUPS.length - 1 ? '1.5rem' : 0 }}>
                 {group.items.map((item, ii) => (
