@@ -54,7 +54,7 @@ export default function InfoSection() {
                       key={row.day}
                       className="py-2 md:py-3 text-center text-base font-bold"
                       style={{
-                        color: (!row.am && !row.pm) ? 'rgba(255,255,255,0.45)' : '#ffffff',
+                        color: '#ffffff',
                         letterSpacing: '0.08em',
                       }}
                     >
@@ -76,8 +76,8 @@ export default function InfoSection() {
                   {SCHEDULE.map((row) => (
                     <td key={row.day} className="py-2 text-center">
                       {row.am
-                        ? <span className="text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
-                        : <span className="text-base" style={{ color: (!row.am && !row.pm) ? '#ccc' : '#ddd' }}>—</span>
+                        ? <span className="text-xl md:text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
+                        : <span className="text-base" style={{ color: '#ccc' }}>—</span>
                       }
                     </td>
                   ))}
@@ -94,8 +94,8 @@ export default function InfoSection() {
                   {SCHEDULE.map((row) => (
                     <td key={row.day} className="py-2 text-center">
                       {row.pm
-                        ? <span className="text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
-                        : <span className="text-base" style={{ color: (!row.am && !row.pm) ? '#ccc' : '#ddd' }}>—</span>
+                        ? <span className="text-xl md:text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
+                        : <span className="text-base" style={{ color: '#ccc' }}>—</span>
                       }
                     </td>
                   ))}
