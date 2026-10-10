@@ -48,8 +48,10 @@ export default function AnalysisSection() {
                 내면으로 떠나는 여행입니다.<br />
                 <br />
                 박희형 원장은,<br />
-                스위스의 정신의학자 칼 구스타프{' '}
-                <span className="whitespace-nowrap">융(C.&nbsp;G.&nbsp;Jung)의</span> 분석심리학에 기반한 정신분석을 시행하고 있습니다.
+                스위스의 정신의학자<br />
+                칼 구스타프 융(C.&nbsp;G.&nbsp;Jung)의<br />
+                분석심리학에 기반한<br />
+                정신분석을 시행하고 있습니다.
               </span>
               {/* 웹: 정해 둔 위치에서 줄바꿈 */}
               <span className="hidden md:block">
