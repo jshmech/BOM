@@ -40,11 +40,15 @@ export default function AnalysisSection() {
             <p className="font-sans text-lg md:text-xl text-white text-on-photo" style={{ lineHeight: 2.2 }}>
               {/* 모바일: 문단 안에서는 화면 폭에 맞춰 줄이 흐른다 */}
               <span className="md:hidden text-balance block">
-                삶에서 지치고 더이상 길이 보이지 않을 때, 잠시 멈추고 자신의 내면을 들여다보는 것이 필요합니다.<br />
+                삶에서 지치고<br />
+                더이상 길이 보이지 않을 때,<br />
+                잠시 멈추고 자신의 내면을<br />
+                들여다보는 것이 필요합니다.<br />
                 <br />
                 그 안에서 내가 알지 못하는 나의 마음, 즉 무의식이 나에게 알려주는 새로운 가능성과 창조성을 만날 길이 열립니다.<br />
                 <br />
-                정신분석은 진정한 자신을 찾기 위해<br />
+                정신분석은<br />
+                진정한 자신을 찾기 위해<br />
                 내면으로 떠나는 여행입니다.<br />
                 <br />
                 박희형 원장은,<br />

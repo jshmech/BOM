@@ -1,7 +1,32 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
+
+// 터치 기기에서는 지도를 한 번 탭해야 움직일 수 있다(페이지 스크롤 중에 지도가 움직이는 것을 막는다)
+const isTouchDevice = () =>
+  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches
 
 export default function LocationSection() {
   const mapContainer = useRef(null)
+  const mapWrapper = useRef(null)
+  const [needsTap] = useState(isTouchDevice)
+  const [active, setActive] = useState(false)
+
+  // 켜진 뒤에는 지도 밖을 누르거나 지도가 화면에서 벗어나면 다시 잠근다
+  useEffect(() => {
+    if (!active || !mapWrapper.current) return
+    const wrapper = mapWrapper.current
+    const onDown = (e) => {
+      if (!wrapper.contains(e.target)) setActive(false)
+    }
+    document.addEventListener('pointerdown', onDown)
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) setActive(false)
+    })
+    io.observe(wrapper)
+    return () => {
+      document.removeEventListener('pointerdown', onDown)
+      io.disconnect()
+    }
+  }, [active])
 
   useEffect(() => {
     if (!mapContainer.current || !window.naver) return
@@ -11,6 +36,8 @@ export default function LocationSection() {
     const map = new window.naver.maps.Map(mapContainer.current, {
       center: new window.naver.maps.LatLng(37.511396 + 0.0013, 127.081620),
       zoom: 15,
+      // 마우스 휠은 페이지 스크롤에 쓰고, 확대/축소는 +/- 버튼과 더블클릭으로 한다
+      scrollWheel: false,
       zoomControl: true,
       zoomControlOptions: {
         position: window.naver.maps.Position.RIGHT_CENTER,
@@ -62,19 +89,35 @@ export default function LocationSection() {
 
         {/* 지도 */}
         {/* isolate: 지도 내부의 높은 z-index가 고정 헤더 위로 올라오지 않게 한다 */}
-        <div className="relative isolate w-full max-w-2xl mx-auto rounded overflow-hidden shadow-lg mb-8">
+        <div
+          ref={mapWrapper}
+          className="relative isolate w-full max-w-2xl mx-auto rounded overflow-hidden shadow-lg mb-8"
+        >
           <div
             ref={mapContainer}
+            className="relative isolate"
             style={{
               width: '100%',
               height: 'clamp(250px, 40vw, 400px)',
             }}
           />
+          {needsTap && !active && (
+            <button
+              type="button"
+              onClick={() => setActive(true)}
+              aria-label="지도를 탭해서 움직이기"
+              className="absolute inset-0 z-10 flex items-end justify-center pb-12"
+            >
+              <span className="pointer-events-none px-3 py-1.5 rounded-sm bg-ink/80 text-white text-xs font-medium">
+                탭하면 지도를 움직일 수 있어요
+              </span>
+            </button>
+          )}
           <a
             href="https://map.naver.com/p/entry/place/38264434"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-3 left-3 z-10 flex items-center gap-2 pl-2.5 pr-4 py-2 bg-ink hover:bg-black text-white text-sm font-semibold rounded-sm shadow-md transition-colors"
+            className="absolute top-3 left-3 z-20 flex items-center gap-2 pl-2.5 pr-4 py-2 bg-ink hover:bg-black text-white text-sm font-semibold rounded-sm shadow-md transition-colors"
           >
             <span
               className="flex items-center justify-center w-5 h-5 rounded-sm text-white text-xs font-black leading-none"
