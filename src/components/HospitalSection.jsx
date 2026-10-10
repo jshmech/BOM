@@ -6,7 +6,7 @@ export default function HospitalSection() {
       style={{ backgroundImage: "url('/images/hero-hospital.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* 어두운 오버레이 */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full text-center py-20">
         <img
@@ -16,7 +16,7 @@ export default function HospitalSection() {
           style={{ filter: 'brightness(0) invert(1)' }}
           loading="lazy"
         />
-        <p className="font-sans text-lg md:text-xl text-white/90" style={{ lineHeight: 2.2 }}>
+        <p className="font-sans text-lg md:text-xl text-white text-on-photo" style={{ lineHeight: 2.2 }}>
           마음의 병은 대개 서서히 시작되어,<br />
           시간이 흐르며 기분과 일상에 깊은 영향을 미치게 됩니다.<br />
           <br />

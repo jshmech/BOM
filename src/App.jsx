@@ -10,9 +10,9 @@ import FloatingButton from './components/FloatingButton'
 
 export default function App() {
   return (
-    <div className="font-sans text-gray-800">
+    <div className="font-sans text-ink">
       <Header />
-      <main>
+      <main className="pt-[88px]">
         <Hero />
         <HospitalSection />
         <DoctorSection />

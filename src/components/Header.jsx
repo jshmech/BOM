@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const NAV_LINKS = [
   { label: '병원소개', href: '#hospital' },
@@ -9,23 +9,12 @@ const NAV_LINKS = [
 ]
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const handleNavClick = () => setMenuOpen(false)
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-line">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* 로고 + 병원명 */}
         <a href="#" onClick={handleNavClick} className="flex items-center gap-3">
@@ -33,21 +22,9 @@ export default function Header() {
             src="/images/bom-logo.png"
             alt="봄 정신건강의학과"
             className="w-14 h-14 object-contain"
-            style={{
-              filter: scrolled ? 'brightness(0)' : 'brightness(0) invert(1)',
-              transition: 'filter 0.3s ease',
-            }}
+            style={{ filter: 'brightness(0)' }}
           />
-          <span
-            className="transition-colors duration-300"
-            style={{
-              fontFamily: 'Noto Serif KR, serif',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: scrolled ? '#222222' : '#ffffff',
-              transition: 'color 0.3s ease',
-            }}
-          >
+          <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1C2220' }}>
             봄정신건강의학과
           </span>
         </a>
@@ -58,9 +35,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`font-sans text-lg font-medium tracking-wide transition-colors duration-200 hover:text-brand ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              className="font-sans text-lg font-medium tracking-wide text-ink transition-colors duration-200 hover:text-brand"
             >
               {link.label}
             </a>
@@ -69,9 +44,7 @@ export default function Header() {
 
         {/* 햄버거 버튼 (모바일) */}
         <button
-          className={`md:hidden p-2 transition-colors duration-200 ${
-            scrolled ? 'text-gray-700' : 'text-white'
-          }`}
+          className="md:hidden p-2 text-ink"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="메뉴 열기"
         >
@@ -89,14 +62,14 @@ export default function Header() {
 
       {/* 모바일 드롭다운 메뉴 */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-gray-100">
+        <div className="md:hidden bg-white border-t border-line">
           <nav className="flex flex-col px-6 py-4 gap-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={handleNavClick}
-                className="font-sans text-base text-gray-700 font-medium py-1 hover:text-brand transition-colors"
+                className="font-sans text-base text-ink font-medium py-1 hover:text-brand transition-colors"
               >
                 {link.label}
               </a>

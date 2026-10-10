@@ -26,7 +26,7 @@ export default function InfoSection() {
       }}
     >
       {/* 오버레이 */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full py-12">
         <img
@@ -39,15 +39,15 @@ export default function InfoSection() {
 
         {/* 진료시간 카드 */}
         <div
-          className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-xl"
-          style={{ backgroundColor: '#fff', border: '1px solid #d0d0d0' }}
+          className="max-w-2xl mx-auto rounded overflow-hidden shadow-xl"
+          style={{ backgroundColor: '#fff', border: '1px solid #E3E6E4' }}
         >
           {/* 테이블 — overflow-x-auto로 모바일 스크롤 대응 */}
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-base" style={{ minWidth: '300px' }}>
               {/* 요일 헤더 */}
               <thead>
-                <tr style={{ backgroundColor: '#C9921A', borderBottom: '2px solid #e0e0e0' }}>
+                <tr style={{ backgroundColor: '#1C2220', borderBottom: '2px solid #e0e0e0' }}>
                   <th className="px-1 md:px-3 py-2 md:py-3 text-left" style={{ width: '28%' }} />
                   {SCHEDULE.map((row) => (
                     <th
@@ -76,7 +76,7 @@ export default function InfoSection() {
                   {SCHEDULE.map((row) => (
                     <td key={row.day} className="py-2 text-center">
                       {row.am
-                        ? <span className="text-2xl" style={{ color: '#C9921A', lineHeight: 1 }}>●</span>
+                        ? <span className="text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
                         : <span className="text-base" style={{ color: (!row.am && !row.pm) ? '#ccc' : '#ddd' }}>—</span>
                       }
                     </td>
@@ -94,7 +94,7 @@ export default function InfoSection() {
                   {SCHEDULE.map((row) => (
                     <td key={row.day} className="py-2 text-center">
                       {row.pm
-                        ? <span className="text-2xl" style={{ color: '#C9921A', lineHeight: 1 }}>●</span>
+                        ? <span className="text-2xl" style={{ color: '#7C9A8A', lineHeight: 1 }}>●</span>
                         : <span className="text-base" style={{ color: (!row.am && !row.pm) ? '#ccc' : '#ddd' }}>—</span>
                       }
                     </td>
@@ -115,7 +115,7 @@ export default function InfoSection() {
                 className="font-sans flex items-start gap-2 text-base"
                 style={{ color: '#666', lineHeight: 1.8 }}
               >
-                <span style={{ color: '#C9921A', fontSize: '0.6rem', marginTop: '0.5rem', flexShrink: 0 }}>●</span>
+                <span style={{ color: '#7C9A8A', fontSize: '0.6rem', marginTop: '0.5rem', flexShrink: 0 }}>●</span>
                 <span>{notice}</span>
               </p>
             ))}

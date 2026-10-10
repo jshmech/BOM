@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#3a3a3a' }} className="py-6 px-4 text-center">
+    <footer style={{ backgroundColor: '#1C2220' }} className="py-6 px-4 text-center">
       <p
         className="font-sans font-semibold"
-        style={{ color: '#7C9A8A', fontSize: '1.1rem', marginBottom: '0.5rem' }}
+        style={{ color: '#9DB8A9', fontSize: '1.1rem', marginBottom: '0.5rem' }}
       >
         봄 정신건강의학과
       </p>
@@ -15,7 +15,7 @@ export default function Footer() {
         사업자등록번호 : 220-90-92731 &nbsp;|&nbsp; 전화번호 :&nbsp;
         <a
           href="tel:02-419-1800"
-          style={{ color: '#7C9A8A' }}
+          style={{ color: '#9DB8A9' }}
           className="hover:underline"
         >
           02-419-1800

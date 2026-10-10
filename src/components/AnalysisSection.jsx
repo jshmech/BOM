@@ -6,7 +6,7 @@ export default function AnalysisSection() {
       style={{ backgroundImage: "url('/images/hero-analysis.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* 어두운 오버레이 */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full py-20">
         <img
@@ -22,7 +22,9 @@ export default function AnalysisSection() {
             <img
               src="/images/jung-portrait.png"
               alt="C. G. Jung"
-              className="w-40 sm:w-56 md:w-80 mx-auto rounded-2xl shadow-xl"
+              width={390}
+              height={509}
+              className="w-40 sm:w-56 md:w-80 h-auto mx-auto rounded shadow-xl"
               loading="lazy"
             />
             <img
@@ -35,7 +37,7 @@ export default function AnalysisSection() {
 
           {/* 데스크탑: 본문 왼쪽 */}
           <div className="flex-1 max-w-md order-last md:order-first">
-            <p className="font-sans text-lg md:text-xl text-white/90" style={{ lineHeight: 2.2 }}>
+            <p className="font-sans text-lg md:text-xl text-white text-on-photo" style={{ lineHeight: 2.2 }}>
               삶에서 지치고 더이상 길이 보이지 않을 때,<br />
               잠시 멈추고 자신의 내면을 들여다보는 것이 필요합니다.<br />
               <br />
