@@ -13,7 +13,7 @@ const CAREER_GROUPS = [
   },
   {
     items: [
-      '대한신경정신의학회 지정 전공의 정신치료 지도 전문의',
+      '대한신경정신의학회 지정 전공의 지도 전문의',
       '정신건강의학과 전문의시험 정신치료 고시위원',
     ],
     highlight: false,
@@ -73,19 +73,22 @@ export default function DoctorSection() {
           </div>
 
           {/* 우측: 이력 */}
-          <div className="max-w-md font-sans text-on-photo text-center md:text-left text-balance">
+          <div className="max-w-md font-sans text-on-photo text-left">
             {CAREER_GROUPS.map((group, gi) => (
               <div key={gi} style={{ marginBottom: gi < CAREER_GROUPS.length - 1 ? '1.5rem' : 0 }}>
                 {group.items.map((item, ii) => (
                   <p
                     key={ii}
                     // 일반 이력은 병원소개·정신분석과 같은 글자 크기·색, 줄간격만 목록답게 조금 좁게
-                    className={group.highlight ? undefined : 'text-lg md:text-xl'}
+                    className={group.highlight ? 'text-pretty' : 'text-lg md:text-xl text-pretty'}
                     style={{
                       fontWeight: group.highlight ? 700 : 400,
                       ...(group.highlight ? { fontSize: '1.25rem' } : {}),
                       color: '#ffffff',
                       lineHeight: group.highlight ? 1.75 : 1.9,
+                      // 줄이 넘어가면 둘째 줄부터 들여쓴다(내어쓰기)
+                      paddingLeft: '1em',
+                      textIndent: '-1em',
                     }}
                   >
                     {item}
