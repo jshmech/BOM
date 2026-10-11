@@ -27,14 +27,14 @@
 }
 
 @layer components {
-  /* 사진 위 어두운 막: 사진이 비치도록 옅게 */
+  /* 사진 위 어두운 막(호박색): 사진이 비치도록 옅게 */
   .photo-tint {
-    background: linear-gradient(rgba(18, 22, 20, 0.34), rgba(18, 22, 20, 0.26));
+    background: linear-gradient(rgba(84, 54, 6, 0.34), rgba(84, 54, 6, 0.26));
   }
 
   /* 사진이 밝아서 흰 글씨 대비가 부족한 섹션용 */
   .photo-tint-strong {
-    background: linear-gradient(rgba(18, 22, 20, 0.5), rgba(18, 22, 20, 0.44));
+    background: linear-gradient(rgba(84, 54, 6, 0.65), rgba(84, 54, 6, 0.59));
   }
 
   /* 밝아진 사진 위에서도 글씨가 읽히도록 */
