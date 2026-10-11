@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="font-sans text-ink">
       <Header />
-      <main className="pt-[88px]">
+      <main className="pt-20 md:pt-[88px]">
         <Hero />
         <HospitalSection />
         <DoctorSection />

@@ -17,20 +17,20 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-line">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* 로고 + 병원명 */}
-        <a href="#" onClick={handleNavClick} className="flex items-center gap-3">
+        <a href="#" onClick={handleNavClick} className="flex items-center gap-2 md:gap-3">
           <img
             src="/images/bom-logo.png"
-            alt="봄 정신건강의학과"
-            className="w-14 h-14 object-contain"
+            alt="봄정신건강의학과의원"
+            className="w-12 h-12 md:w-14 md:h-14 object-contain"
             style={{ filter: 'brightness(0)' }}
           />
-          <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1C2220' }}>
-            봄정신건강의학과
+          <span className="text-xl lg:text-2xl whitespace-nowrap" style={{ fontWeight: 700, color: '#1C2220' }}>
+            봄정신건강의학과의원
           </span>
         </a>
 
         {/* 데스크탑 네비게이션 */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
