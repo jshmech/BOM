@@ -1,13 +1,18 @@
-// full: 웹(한 줄), mobile: 모바일(정해 둔 줄바꿈)
+import { MobileBreak } from './Breaks'
+
+// 모바일에서는 [앞, 뒤] 사이에서 줄이 바뀌고, 웹에서는 한 줄로 이어진다
 const LINES = [
-  { full: '따뜻하게 맞이하고 위로와 격려를 드리겠습니다.', mobile: ['따뜻하게 맞이하고', '위로와 격려를 드리겠습니다.'] },
-  { full: '어두운 길을 함께 걷는 동반자가 되겠습니다.', mobile: ['어두운 길을 함께 걷는', '동반자가 되겠습니다.'] },
-  { full: '전문적인 치료를 제공하겠습니다.', mobile: ['전문적인 치료를', '제공하겠습니다.'] },
+  ['따뜻하게 맞이하고', '위로와 격려를 드리겠습니다.'],
+  ['어두운 길을 함께 걷는', '동반자가 되겠습니다.'],
+  ['전문적인 치료를', '제공하겠습니다.'],
 ]
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-[max(68vh,30rem)] overflow-hidden">
+      {/* 화면에는 보이지 않는 페이지 대표 제목(검색엔진·화면 읽기용) */}
+      <h1 className="sr-only">봄정신건강의학과의원</h1>
+
       {/* 고정 배경 이미지 */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -29,12 +34,9 @@ export default function Hero() {
               textShadow: '0 1px 10px rgba(0,0,0,0.55)',
             }}
           >
-            <span className="hidden md:inline">{line.full}</span>
-            <span className="md:hidden">
-              {line.mobile[0]}
-              <br />
-              {line.mobile[1]}
-            </span>
+            {line[0]}{' '}
+            <MobileBreak />
+            {line[1]}
           </p>
         ))}
       </div>

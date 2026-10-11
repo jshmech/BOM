@@ -29,13 +29,15 @@ export default function InfoSection() {
       <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full py-12">
-        <img
-          src="/images/section-info.png"
-          alt="진료안내"
-          className="h-8 md:h-11 w-auto mx-auto mb-10"
-          style={{ filter: 'brightness(0) invert(1)' }}
-          loading="lazy"
-        />
+        <h2>
+          <img
+            src="/images/section-info.png"
+            alt="진료안내"
+            className="h-8 md:h-11 w-auto mx-auto mb-10"
+            style={{ filter: 'brightness(0) invert(1)' }}
+            loading="lazy"
+          />
+        </h2>
 
         {/* 진료시간 카드 */}
         <div

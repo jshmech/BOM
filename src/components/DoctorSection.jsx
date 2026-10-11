@@ -47,12 +47,14 @@ export default function DoctorSection() {
       <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full py-20">
-        <img
-          src="/images/section-doctor.png"
-          alt="원장소개"
-          className="h-8 md:h-12 w-auto mx-auto mb-14"
-          loading="lazy"
-        />
+        <h2>
+          <img
+            src="/images/section-doctor.png"
+            alt="원장소개"
+            className="h-8 md:h-12 w-auto mx-auto mb-14"
+            loading="lazy"
+          />
+        </h2>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 mx-auto">
           {/* 좌측: 사진 + 이름 */}

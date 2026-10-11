@@ -1,13 +1,15 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useSyncExternalStore } from 'react'
 
 // 터치 기기에서는 지도를 한 번 탭해야 움직일 수 있다(페이지 스크롤 중에 지도가 움직이는 것을 막는다)
-const isTouchDevice = () =>
-  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches
+// 서버(빌드)에서는 터치 여부를 모르므로 false 로 그리고, 브라우저에서 실제 값으로 바뀐다
+const subscribeNothing = () => () => {}
+const getIsTouch = () => window.matchMedia('(pointer: coarse)').matches
+const getIsTouchOnServer = () => false
 
 export default function LocationSection() {
   const mapContainer = useRef(null)
   const mapWrapper = useRef(null)
-  const [needsTap] = useState(isTouchDevice)
+  const needsTap = useSyncExternalStore(subscribeNothing, getIsTouch, getIsTouchOnServer)
   const [active, setActive] = useState(false)
 
   // 켜진 뒤에는 지도 밖을 누르거나 지도가 화면에서 벗어나면 다시 잠근다
@@ -79,13 +81,15 @@ export default function LocationSection() {
       <div className="absolute inset-0 photo-tint" />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6 w-full py-20">
-        <img
-          src="/images/section-location.png"
-          alt="오시는길"
-          className="h-8 md:h-12 w-auto mx-auto mb-14"
-          style={{ filter: 'brightness(0) invert(1)' }}
-          loading="lazy"
-        />
+        <h2>
+          <img
+            src="/images/section-location.png"
+            alt="오시는길"
+            className="h-8 md:h-12 w-auto mx-auto mb-14"
+            style={{ filter: 'brightness(0) invert(1)' }}
+            loading="lazy"
+          />
+        </h2>
 
         {/* 지도 */}
         {/* isolate: 지도 내부의 높은 z-index가 고정 헤더 위로 올라오지 않게 한다 */}
