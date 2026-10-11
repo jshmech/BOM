@@ -16,7 +16,7 @@ export default function HospitalSection() {
           style={{ filter: 'brightness(0) invert(1)' }}
           loading="lazy"
         />
-        <p className="font-sans text-lg md:text-xl text-white text-on-photo" style={{ lineHeight: 2.2 }}>
+        <p className="font-sans text-lg md:text-xl text-white text-on-photo w-fit max-w-full mx-auto text-left" style={{ lineHeight: 2.2 }}>
           {/* 모바일: 문단 안에서는 화면 폭에 맞춰 줄이 흐른다 */}
           <span className="md:hidden text-balance block">
             마음의 병은 대개 서서히 시작되어, 시간이 흐르며 기분과 일상에 깊은 영향을 미치게 됩니다.<br />
