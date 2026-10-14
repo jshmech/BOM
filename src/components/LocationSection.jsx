@@ -135,8 +135,8 @@ export default function LocationSection() {
 
         {/* 주소 및 교통 정보 */}
         <div className="font-sans text-white text-on-photo space-y-4">
-          <p className="text-center text-lg md:text-xl font-semibold">
-            서울특별시 송파구 올림픽로 100 효창타워 6층
+          <p className="text-center text-lg md:text-xl font-semibold text-balance">
+            서울특별시 송파구 <span className="whitespace-nowrap">올림픽로 100</span> 효창타워 6층 (잠실동)
           </p>
 
           {/* 교통 카드 */}
